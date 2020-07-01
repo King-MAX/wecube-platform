@@ -5,10 +5,10 @@ server:
 logging:
    config: classpath:logback-spring.xml
 spring:
-#   datasource:
+   datasource:
 #      url: jdbc:mysql://127.0.0.1:3306/weauth?useUnicode=true&characterEncoding=UTF8&useJDBCTCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false
 #      username: root
-#      password: Wecube666
+#      password: root
 #      url: jdbc:mysql://127.0.0.1:3306/wecube_dev?useUnicode=true&characterEncoding=UTF8&useJDBCTCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false
 #      username: wecube
 #      password: Abcd1234
