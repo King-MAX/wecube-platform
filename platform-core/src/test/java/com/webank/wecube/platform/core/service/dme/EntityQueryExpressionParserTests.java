@@ -7,6 +7,20 @@ import org.junit.Test;
 
 public class EntityQueryExpressionParserTests {
 	EntityQueryExpressionParser parser = new EntityQueryExpressionParser();
+	
+	@Test
+	public void testParseSingleRootExpr() {
+		String inputExpr = "wecmdb:host_resource_instance{ip_address eq '10.128.202.3'}";
+		List<EntityQueryExprNodeInfo> queryNodeInfos = parser.parse(inputExpr);
+		Assert.assertNotNull(queryNodeInfos);
+		Assert.assertEquals(1, queryNodeInfos.size());
+		EntityQueryExprNodeInfo nodeInfo = queryNodeInfos.get(0);
+		Assert.assertEquals("wecmdb:host_resource_instance", nodeInfo.getEntityInfoExpr());
+		Assert.assertEquals("wecmdb", nodeInfo.getPackageName());
+		Assert.assertEquals("host_resource_instance", nodeInfo.getEntityName());
+//		Assert.assertEquals("subsys_design", nodeInfo.getQueryAttrName());
+		Assert.assertEquals("{ip_address eq '10.128.202.3'}", nodeInfo.getEntityFilterExpr());
+	}
 
 	@Test
 	public void testParseRefToWithConditionShouldSucceed() {
